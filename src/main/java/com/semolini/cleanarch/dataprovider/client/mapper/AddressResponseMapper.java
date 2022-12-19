@@ -8,5 +8,4 @@ import org.mapstruct.Mapper;
 public interface AddressResponseMapper {
 
     Address toAddress(AddressResponse addressResponse);
-
 }
