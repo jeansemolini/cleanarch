@@ -1,6 +1,6 @@
 package com.semolini.cleanarch.entrypoint.controller;
 
-import com.semolini.cleanarch.core.domain.Customer;
+import com.semolini.cleanarch.core.usecase.DeleteCustomerByIdUseCase;
 import com.semolini.cleanarch.core.usecase.FindCustomerByIdUseCase;
 import com.semolini.cleanarch.core.usecase.InsertCustomerUseCase;
 import com.semolini.cleanarch.core.usecase.UpdateCustomerUseCase;
@@ -27,6 +27,9 @@ public class CustomerController {
     private UpdateCustomerUseCase updateCustomerUseCase;
 
     @Autowired
+    private DeleteCustomerByIdUseCase deleteCustomerByIdUseCase;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -48,7 +51,13 @@ public class CustomerController {
         var customer = customerMapper.toCustomer(customerRequest);
         customer.setId(id);
         updateCustomerUseCase.update(customer, customerRequest.getZipCode());
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        deleteCustomerByIdUseCase.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
