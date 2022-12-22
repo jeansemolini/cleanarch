@@ -7,6 +7,6 @@ public class CustomerResponse {
 
     private String name;
     private String cpf;
-    private Boolean isValid;
-    private AddressResponse addressResponse;
+    private Boolean isValidCpf;
+    private AddressResponse addeess;
 }
