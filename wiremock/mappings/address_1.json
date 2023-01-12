@@ -1,0 +1,17 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/addresses/38400001"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "COntent-Type": "application/json"
+        },
+        "jsonBody": {
+            "street": "Av Araças",
+            "city": "Araçatuba",
+            "state": "São Paulo"
+        }
+    }
+}

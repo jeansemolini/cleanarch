@@ -38,3 +38,11 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+  wiremock:
+    image: wiremock/wiremock:2.35.0
+    command: ["--port=8082"]
+    ports:
+      - 8082:8082
+    volumes:
+      - ${PWD}/wiremock:/home/wiremock
